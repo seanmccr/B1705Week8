@@ -1,7 +1,7 @@
 # ----- B1705 Week 8 | Machine Learning: Workflow | 05.03.2024 -----
 # ----- Pre-lecture Work -----
 
-
+# TOPICS COVERED HERE SHOULD BE PART OF ALL OUR WORKFLOW WHEN ANALYSING DATA 
 
 # ----- Lecture Work ------
 # ----- 1. Workflow Introduction & Handling Missing Values -----
@@ -208,7 +208,7 @@ ggplot(melted_data, aes(x = variable, y = value, fill = swimmer_id)) +
   labs(title = "Standardised Swimming Performance Metrics", x = "Event", y = "Standardised Time") +
   theme_minimal()
 
-# ----- Dealing with Imbalanced Data -----
+# ----- 5. Dealing with Imbalanced Data -----
 ##### Theory -----
 # Loading Libraries
 library(caret)
@@ -240,7 +240,7 @@ table(athletes_data_smote$injury)
 data_majority <- athletes_data[athletes_data$injury == 0, ]
 data_minority <- athletes_data[athletes_data$injury == 1, ]
 
-# Upsample minority class
+# Up-sample minority class
 data_minority_upsampled <- data_minority[sample(nrow(data_minority), 190, replace = TRUE), ]
 data_balanced <- rbind(data_majority, data_minority_upsampled)
 

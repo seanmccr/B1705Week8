@@ -30,7 +30,7 @@ ggplot(mtcars, aes(x = wt, y = cyl, color = factor(cluster))) +
 
 # ----- Lecture Work ------
 
-# ----- Supervised Learning -----
+# ----- 1. Supervised Learning -----
 ##### Regression: Demonstration -----
 
 # create synthetic dataset
@@ -89,6 +89,11 @@ print(mse)
 # Clean environment
 rm(model, testData, trainData, trainIndex)
 
+# Overfitting at MSE is common; the model predicts based on previous information
+# too accurately, and because it is fitted too strongly to previously occured happenings,
+# it may be particularly poor at predicting what will occur in future, where there is 
+# more variability 
+
 ##### Regression: Practice -----
 team_stats <- read.csv('https://www.dropbox.com/scl/fi/lh1xy2jx747375tex03w3/team_stats.csv?rlkey=cgpbitn33bqazei4uwose12uk&dl=1')
 
@@ -124,7 +129,7 @@ print(mse)
 
 rm(model, testData, trainData, trainIndex)
 
-# ----- Unsupervised Learning -----
+# ----- 2. Unsupervised Learning -----
 
 ##### K-Means Clustered: Demonstration -----
 # Load library
@@ -162,7 +167,6 @@ possession <- c(possession, runif(num_teams / 4, min = 40, max = 45))
 
 # Combine into data frame
 football_data <- data.frame(goals_scored, goals_conceded, possession)
-
 
 # Select relevant columns for clustering 
 selected_columns <- football_data[, c("goals_scored", "goals_conceded", "possession")]
@@ -216,7 +220,7 @@ hc <- hclust(distances)  # Perform hierarchical clustering
 plot(hc)
 
 
-# ----- Reinforcement Learning: Demonstration -----
+# ----- 3. Reinforcement Learning: Demonstration -----
 ##### Define Parameters -----
 # load package
 rm(list=ls())
